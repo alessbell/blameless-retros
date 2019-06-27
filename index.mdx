@@ -1,4 +1,5 @@
 export { default as theme } from './theme';
+import { Notes } from 'mdx-deck';
 
 # Blameless Retros:
 
@@ -8,9 +9,35 @@ export { default as theme } from './theme';
 
 ---
 
-# Agenda
+# ☠️ Postmortem ☠️
 
-### Why a blameless retro?
+- Not all created equal
+- What makes the good ones good (and reproduceable)? 🤔
+- "Blameless Retro"... sounds nice 😇
+
+<Notes>
+  <ul>
+    <li>
+      By a show of hands, who has participated in a postmortem before? Positive
+      postmortem experiences? Negative ones?
+    </li>
+    <li>
+      We had a minor "miss" -- I was talking to Christophe about what happened,
+      and thought we should try a blameless retro
+    </li>
+    <li>I've been a part of a few of them, some better than others</li>
+    <li>Sounded nice!</li>
+  </ul>
+</Notes>
+
+---
+
+## Goals
+
+1. Learn about blameless retros
+2. Model one
+
+## Agenda
 
 - "Just Culture"
 - First stories vs. Second stories
@@ -20,17 +47,26 @@ export { default as theme } from './theme';
 
 ## "Just Culture"
 
-- Philosophy and framework borrowed from the world of healthcare
+- Philosophy borrowed from the world of healthcare
 - In October 1999, Dr. Lucian Leape briefed US Congress on the state of human error management in the medical industry
+
+<Notes>
+  <ul>
+    <li>
+      "Just culture" is a philosophy of organizational theory in medical field
+    </li>
+  </ul>
+</Notes>
 
 ---
 
-- Problem:
-  - 1MM+ people injured by errors in treatment at hospitals each year in the US
-  - 120,000 deaths arising from those errors at a cost of 33B
-  - 3x greater than those who die in automobile accidents
-  - 1000x greater than those who die in commercial aircraft accidents
-  - Only 2 to 3% of major errors reported through hospital incident reporting systems
+### Problem
+
+- 1MM+ people injured by errors in treatment at hospitals each year in the US
+- 120,000 deaths arising from those errors at a cost of 33B
+- 3x greater than those who die in automobile accidents
+- 1000x greater than those who die in commercial aircraft accidents
+- Only 2 to 3% of major errors reported through hospital incident reporting systems
 - Health care workers often report only what they cannot conceal
 
 ---
@@ -41,8 +77,18 @@ export { default as theme } from './theme';
 
 > **“...we punish people for making mistakes.”** ([source](http://www.chpso.org/sites/main/files/file-attachments/marx_primer.pdf))
 
-- "The just culture is a learning culture that is constantly improving and oriented toward patient safety." ([source](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3776518/))
+- "The just culture is a **learning culture** that is constantly improving and oriented toward patient safety." ([source](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3776518/))
 - Requires a change in focus from errors and outcomes → system design
+
+<Notes>
+  <ul>
+    <li>
+      Engineering leadership borrowed this idea of a "Just Culture" and shaped
+      it for a tech context
+    </li>
+    <li>Deterrence!!</li>
+  </ul>
+</Notes>
 
 ---
 
@@ -50,17 +96,30 @@ export { default as theme } from './theme';
 
 # Situations, not people, cause errors
 
+<Notes>
+  <ul>
+    <li>Written by a bunch of PhD researchers in system safety, human error</li>
+  </ul>
+</Notes>
+
 ---
 
 ## First stories vs. Second stories cont'd
 
-| First stories                                                               | Second stories                                                                                                         |
-| --------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| Human error is seen as cause of failure                                     | Human error is seen as the effect of systemic vulnerabilities deeper inside the organization                           |
-| Saying what people should have done is a satisfying way to describe failure | Saying what people should have done doesn’t explain why it made sense for them to do what they did                     |
-| Telling people to be more careful will make the problem go away             | Only by constantly seeking out its vulnerabilities can organizations enhance safety (or reliability, resilience, etc.) |
+| First stories                                                                  | Second stories                                                                                                         |
+| ------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------- |
+| Human error is the **cause** of failure                                        | Human error is the **effect** of systemic vulnerabilities deeper inside the organization                               |
+| Saying what people should have done is a satisfying way to describe failure... | But doesn’t explain why it made sense for them to do what they did                                                     |
+| Telling people to be more careful will make the problem go away                | Only by constantly seeking out its vulnerabilities can organizations enhance safety (or reliability, resilience, etc.) |
 
 From the book [Behind Human Error](https://www.amazon.com/Behind-Human-Error-David-Woods/dp/0754678342)
+
+---
+
+## "Accidents waiting to happen"
+
+- `some-command restore --flag # deletes production db😵`
+- two different vials of medicine with near-identical labels
 
 ---
 
@@ -74,16 +133,23 @@ From the book [Behind Human Error](https://www.amazon.com/Behind-Human-Error-Dav
 ## Blameless Retros
 
 - Seek out Second stories ("the story behind the story," or vulnerabilities in the system)
-- Understand **how** something happened, not "why" (the answer to "why" is often a cause-and-effect chain that gets created after the fact by virtue of hindsight)
+- Understand **how** something happened, not "why"
+  - the answer to "why" is often a cause-and-effect chain that gets created after the fact by virtue of hindsight
   - [Look for descriptions, not explanations](https://github.com/etsy/DebriefingFacilitationGuide/blob/master/guide/05-the-art-of-asking-questions.md#remember-to-look-for-descriptions-not-explanations)
+
+---
+
+## Conclusion
+
 - Encourage people who do make mistakes to be the experts on educating the rest of the organization how not to make them in the future
+- Success = at least one person learns one thing that will affect how they work in the future
 
 ---
 
 ## Resources
 
-- [https://codeascraft.com/2012/05/22/blameless-postmortems/](https://codeascraft.com/2012/05/22/blameless-postmortems/)
-- [https://github.com/etsy/DebriefingFacilitationGuide/blob/master/guide/05-the-art-of-asking-questions.md#remember-to-look-for-descriptions-not-explanations](https://github.com/etsy/DebriefingFacilitationGuide/blob/master/guide/05-the-art-of-asking-questions.md#remember-to-look-for-descriptions-not-explanations)
+- [Blameless Postmortems from the Etsy Blog](https://codeascraft.com/2012/05/22/blameless-postmortems/)
+- [Debrief Facilitation Guide](https://github.com/etsy/DebriefingFacilitationGuide/blob/master/guide/05-the-art-of-asking-questions.md#remember-to-look-for-descriptions-not-explanations)
 
 ---
 
